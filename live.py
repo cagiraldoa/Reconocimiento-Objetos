@@ -24,7 +24,7 @@ weights = 'yolov3/yolov3.weights'
 model = cv2.dnn.readNetFromDarknet(cfg, weights)
 # Extract names from output layers
 layersNames = model.getLayerNames()
-outputNames = [layersNames[i[0] - 1] for i in model.getUnconnectedOutLayers()]
+outputNames = [layersNames[i - 1] for i in model.getUnconnectedOutLayers()]
 
 #%% Define function to extract object coordinates if successful in detection
 def where_is_it(frame, outputs):
